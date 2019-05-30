@@ -64,7 +64,7 @@ section.section_header > h2 {
  *********************************************/
 body {
   background: 
-              url('img/NIST_text_white.svg'), 
+              url('img/nist_text_white.svg'), 
               url('img/MMLlogo_oneline_white.svg'),
               url('img/blue_bar.png'), 
               url('img/blue_bar.png'),
@@ -85,30 +85,6 @@ body {
                       right 15% bottom 19px,
                       0 0,
                       left 0 bottom 3px,
-                      0 0;
-}
-
-html.title body {
-  background: url('img/blue_bar.png'), 
-              url('img/blue_bar.png'), 
-              url('img/NIST_stacked_gray.svg'), 
-              url('img/MML_stacked_blue.svg'),
-              url('img/hexagons.svg');
-  position: absolute;
-  background-size:100px 10px, 
-                  100px 50px, 
-                  15%,
-                  15%,
-                  100%;
-  background-repeat:repeat-x,
-                    repeat-x,  
-                    no-repeat, 
-                    no-repeat,
-                    no-repeat;
-  background-position:0 0,
-                      left 0 bottom 3px,
-                      left 80px bottom 65px,
-                      right 80px bottom 65px,
                       0 0;
 }
 
