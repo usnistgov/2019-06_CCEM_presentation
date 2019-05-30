@@ -12,6 +12,29 @@
 /* POSITIONING */
 /***************/
 
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.reveal .fig-caption {
+  position: absolute;
+  margin: auto;
+  max-width: 45%;
+  width: 45%;
+  right: 0;
+  text-align: center;
+  font-style: italic;
+  bottom: 28%;
+  height: auto;
+  display: block;
+  color: #4a4a4a;
+  font-size: x-large;
+}
+
 .reveal .controls{
   bottom: 60px;
 }
@@ -96,18 +119,23 @@ body {
 
 .reveal .slide-number {
   display: table-cell;
-  right: 10px;
-  bottom: 14px;
-  width:19px;
-  height:19px;
+  right: 1%;
+  bottom: 12px;
+  /* width:19px; */
+  height: 19px;
   line-height: 19px;
   text-align: center;
   font-family: "Lato", Helvetica, sans-serif;
   font-size: 12px;
   vertical-align: middle; 
   background-color: rgba(85, 114, 195, 0.4);
-  padding: 5px;
+  padding: 7px 10px;
   border-radius: 50%;
+}
+
+.reveal .slide-number a {
+  vertical-align: middle;
+  text-decoration: none;
 }
 
 ::selection {
@@ -119,6 +147,18 @@ body {
 .reveal .slides > section > section {
   line-height: 1.3;
   font-weight: inherit; }
+
+.reveal sticky {
+  border: 3px solid #134674;
+  position: fixed;
+  top: 5%;
+  right: -5%;
+  padding: 0.5%;
+  font-size: 0.5em;
+  background: #dceefe;
+  max-width: 15%;
+  vertical-align: middle;
+}
 
 /*********************************************
  * HEADERS
@@ -172,6 +212,17 @@ body {
 /*********************************************
  * OTHER
  *********************************************/
+
+.two-cols{
+  display: flex;
+}
+.col{
+  flex: 1;
+}
+.col > ul > ul > li {
+  font-weight: normal !important;
+}
+
 .text_left_im_right > h2 + ul {
   max-width: 50%;
   float: left;
@@ -251,7 +302,7 @@ section.reference ul > li {
 
 .tight_list   li {
   margin-bottom: 7px !important;
-  font-size: 0.9em !important;
+  font-size: 0.7em !important;
   font-weight: normal !important;
 }
 
