@@ -30,33 +30,74 @@ joshua.taillon@nist.gov <!-- .element: class="contact"-->
 
 <!--s-->
 
+<!-- .slide: class="disclaimer" -->
+
 ## NIST Disclaimer
 
 *Certain commercial equipment, instruments, materials, vendors, and software are
 identified in this talk for example purposes and to foster understanding. Such
 identification does not imply recommendation or endorsement by the National
 Institute of Standards and Technology, nor does it imply that the materials or
-equipment identified are necessarily the best available for the purpose.*
+equipment identified are necessarily the best available for the purpose.* 
 
 <!--s-->
 
+## A Brief Introduction
 
-## General Outline
+- Materials scientist by training <!-- .element: class="fragment" data-fragment-index="1" -->
 
-* Why (electron) microscopy?  <!-- .element: class="fragment" data-fragment-index="1" -->
+- Background in Materials characterization <!-- .element: class="fragment" data-fragment-index="2" -->
+  - TEM, FIB/SEM, EDS/EELS, etc. <!-- .element: class="fragment" data-fragment-index="2" -->
 
-* History of and introduction to TEM <!-- .element: class="fragment" data-fragment-index="2" -->
-	* Conventional imaging <!-- .element: class="fragment" data-fragment-index="2" -->
-	* Scanning TEM and high-angle imaging <!-- .element: class="fragment" data-fragment-index="2" -->
-	* Sample preparation <!-- .element: class="fragment" data-fragment-index="2" -->
-	* Analytical strategies (EELS) <!-- .element: class="fragment" data-fragment-index="2" -->
+- NIST Office of Data and Informatics <!-- .element: class="fragment" data-fragment-index="3" -->
+  - <!-- .element: class="fragment" data-fragment-index="3" --> Not *actually* a microscopist any longer...
 
-* Data analysis methods and real-world examples: <!-- .element: class="fragment" data-fragment-index="3" -->
-	- SiC wide bandgap MOSFETS <!-- .element: class="fragment" data-fragment-index="3" -->
-	- Solid oxide fuel cell cathodes <!-- .element: class="fragment" data-fragment-index="3" -->
+Note:
+
+ODI contributes scientific value to research by providing guidance in best
+practices and resources which optimize the discoverability, usability, and
+interoperability of data products.  
+
+ODI fosters collaboration and coordination among MML laboratory domain experts and other data specialists at NIST. 
+
+ODI supports development of research programs where advanced manipulation, visualization, and analysis of large data sets are needed to advance knowledge.
 
 <!--s-->
 
+## High-level Outline
+
+- <!-- .element: class="fragment" data-fragment-index="1" --> What is *computational microscopy*?
+
+- <!-- .element: class="fragment" data-fragment-index="2" --> Real-world examples of "big data" analysis in EM
+
+- The advent of open tools <!-- .element: class="fragment" data-fragment-index="3" -->
+  - <!-- .element: class="fragment" data-fragment-index="3" --> *Now you can get the same result as your neighbor!*
+
+- <!-- .element: class="fragment" data-fragment-index="4" --> Deeper dive into "signal separation"
+  - <!-- .element: class="fragment" data-fragment-index="4" --> Methods, examples, *gotchas*, etc.
+
+<!--s-->
+
+<!-- .slide: class="section_header" data-background="#303c6b"-->
+## What is *computational microscopy*?
+
+<!--s-->
+
+## Example video
+
+<!-- .slide: class="text_left_im_right" -->
+
+<video  style="width: 400px;"
+        data-autoplay
+        src="vid/HAADF_EDS_mosaic.mp4"
+        controls
+        loop>
+</video>
+
+* test
+  * test2
+
+<!--s-->
 ## Why Microscopy?
 
 **Seeing is believing!**
@@ -125,8 +166,7 @@ Note:
 
 <!--s-->
 
-<!-- .slide: class="section_header" -->
-<!-- .slide: data-background="#303c6b" -->
+<!-- .slide: class="section_header" data-background="#303c6b"-->
 
 ## Basics of Transmission Electron Microscopy
 

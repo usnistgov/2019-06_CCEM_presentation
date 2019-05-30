@@ -39,10 +39,10 @@ section.present > h2 {
  * SECTION STYLING
  *********************************************/
 
- section.section_header {
-   /* background: #303c6b; */
+.disclaimer > p {
+  text-align: left;
+}
 
- }
 
 section.section_header > h2 {
   color:white;
@@ -190,9 +190,10 @@ body {
   box-sizing: border-box;
 }
 
-.text_left_im_right > p > img {
+.text_left_im_right > p > img,
+.text_left_im_right > video {
   position: absolute;
-  max-width: 45%;
+  max-width: 45% !important;
   right: 0;
   bottom: 18%;
 }
@@ -207,9 +208,9 @@ body {
   box-sizing: border-box;
 }
 
-.text_right_im_left > p ~ ul {
+.text_right_im_left > ul {
   max-width: 100%;
-  margin-left: 55%;
+  margin-left: 55% !important;
   float: right;
   font-size: 1em;
   -webkit-box-sizing: border-box;
@@ -217,9 +218,10 @@ body {
   box-sizing: border-box;
 }
 
-.text_right_im_left > p > img {
+.text_right_im_left > p > img,
+.text_right_im_left > video {
   position: absolute;
-  max-width: 45%;
+  max-width: 45% !important;
   left: 0;
   bottom: 18%;
 }
