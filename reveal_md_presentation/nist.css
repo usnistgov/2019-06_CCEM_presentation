@@ -88,6 +88,33 @@ section.section_header > h2 {
   font-weight: bold;
 }
 
+section.one_image img {
+  position: relative;
+  top:-25px;
+}
+
+section.one_image .fig-caption {
+  position: absolute;
+  margin: auto;
+  max-width: 100%;
+  width: 100%;
+  right: 0;
+  text-align: center;
+  bottom: 9.5%;
+  height: auto;
+  display: block;
+  font-style: italic;
+  color: #4a4a4a;
+  font-size: x-large;
+}
+
+section#python_ecosystem img {
+  height:200px;
+  background-color: none;
+  text-shadow: none;
+  box-shadow: none;
+}
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/

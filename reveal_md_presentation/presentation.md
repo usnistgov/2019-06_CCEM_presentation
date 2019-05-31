@@ -91,7 +91,6 @@ ODI supports development of research programs where advanced manipulation, visua
 </div>
 </div>
 
-
 <!-- .slide: data-transition="none" -->
 <!--v-->
 <!-- .slide: data-transition="none" -->
@@ -383,11 +382,160 @@ LS is low-discrepancy sequencing (grid + random jitter)
 
 <!--s-->
 
-## Acknowledgments
+<!-- .slide: class="one_image" -->
 
-- Collaborators:
-  - Lourdes Salamanca-Riba - UMD
-  - Leonard Feldman - Rutgers
+<img src="img/python_xkcd.png" alt="" class="plain">
+<div class="fig-caption">Randall Munroe - <a href="https://xkcd.com/">xkcd</a></div>
+
+<!--s-->
+
+## A "typical" EM analysis
+
+<!-- .slide: class="text_left_im_right tight_list" -->
+
+- One or more software packages typically necessary
+- Often vendor-provided
+- GUI-driven with many options, sometimes “black-box”
+- Typically, no log recorded
+  - Hope you keep a good notebook!
+  - Can you reproduce your post-doc's analysis?
+- Tightly integrated with equipment/acquisition
+
+
+![Profile extraction in Gatan DM](img/DM_GUI.svg) <!-- .element: class="plain vertical-center" style="max-width:100% !important; width:45%; right:0%; top:45%;" -->
+<div class="fig-caption" style="width:55%; bottom: 15%">Extracting EELS intensity profile in Gatan Digital Micrograph</div>
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+## A better way?
+
+<!-- .slide: class="text_left_im_right tight_list" -->
+
+- A "typical" EELS analysis, but totally reproducible <!-- .element: style="color: #303c6b;" -->
+<br/><br/>
+- Computation within a “notebook” environment
+- Seamless mixing of notetaking, mathematics, and data analysis
+- Notebook is rendered in any web browser 
+- Version controlled and exportable to PDF, HTML, Markdown, etc.
+
+![Notebook analysis vs. GUI](img/gui_vs_nb.svg) <!-- .element: class="plain vertical-center" style="max-width:100% !important; width:55%; right:-5%; top:45%;" -->
+<div class="fig-caption" style="width:60%; bottom: 15%">Notebook compared to GUI</div>
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+## A better way?
+
+```python
+import hyperspy.api as hs
+s = hs.load('EELS Spectrum Image.dm3')
+s_sig = s.remove_background(signal_range=(70.2, 97.2))
+s_crop = s_sig.inav[:, 12:62].isig[94.5:110.1]
+s_crop.sum(axis=(1,-1)).plot()
+```
+<div class="fig-caption" style="max-width:100%; width:100%; bottom: 35%">Only 5 lines of code!</div>
+<sticky style="max-width:20%;">Please join one of the HyperSpy tutorials this week if you want to learn more!</sticky>
+<!--s-->
+
+## A burgeoning ecosystem
+
+<table style="max-width:100%; width:100%; height:100%;font-size:.55em; margin-left:-12%;">
+  <tr style="font-weight:bold;">
+    <th colspan="2">General Purpose</th>
+    <th></th>
+    <th colspan="2">Others</th>
+  </tr>
+  <tr>
+    <td>HyperSpy</td>
+    <td style="text-align:left;">http://hyperspy.org/</td>
+    <td></td>
+    <td>PyQSTEM</td>
+    <td style="text-align:left;">https://github.com/jacobjma/PyQSTEM</td>
+  </tr>
+  <tr>
+    <td>Nion Swift</td>
+    <td style="text-align:left;">https://nionswift.readthedocs.io/en/stable/</td>
+    <td></td>
+    <td>HRTEMFringeAnalyzer</td>
+    <td style="text-align:left;">https://github.com/ialxn/HRTEMFringeAnalyzer</td>
+  </tr>
+  <tr>
+    <td>`pycroscopy`</td>
+    <td style="text-align:left;">https://github.com/pycroscopy/pycroscopy</td>
+    <td></td>
+    <td>Atomap</td>
+    <td style="text-align:left;">https://atomap.org/</td>
+  </tr>
+
+  <tr style="line-height:2em;">
+    <td>&nbsp;</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr style="font-weight:bold;">
+    <td colspan="2">Pixelated STEM</td>
+    <td></td>
+    <td colspan="2">Tomography</td>
+  </tr>
+  <tr>
+    <td>pyXem</td>
+    <td style="text-align:left;">https://pyxem.github.io/pyxem/</td>
+    <td></td>
+    <td>tomopy</td>
+    <td style="text-align:left;">https://tomopy.readthedocs.io/en/latest/</td>
+  </tr>
+  <tr>
+    <td>pixStem</td>
+    <td style="text-align:left;">https://pixstem.org/</td>
+    <td></td>
+    <td>`tomotools`</td>
+    <td style="text-align:left;">https://github.com/AndrewHerzing/tomotools</td>
+  </tr>
+  <tr>
+    <td>LiberTEM</td>
+    <td style="text-align:left;">https://github.com/LiberTEM/LiberTEM</td>
+    <td></td>
+    <td>tomviz</td>
+    <td style="text-align:left;">https://tomviz.org/</td>
+  </tr>
+  <tr>
+    <td>`fpd`</td>
+    <td style="text-align:left;">https://gitlab.com/fpdpy/fpd/</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div class="fig-caption" style="max-width:100%; width:100%; bottom: 15%">And many others (all free!)...</div>
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+## All built on Python!
+
+<!-- .slide: id="python_ecosystem" -->
+
+<div>
+  <a href="https://www.python.org/" title="Python" target="_blank"><img alt="Python" class="plain" src="img/python_logo.svg"/></a> &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://www.numpy.org/" target="_blank" title="NumPy"><img alt="NumPy" class="plain" src="img/numpy_logo.svg"/></a> &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://jupyter.org/" target="_blank" title="Jupyter"><img alt="Jupyter" class="plain" src="img/jupyter_logo.svg"/></a> &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://www.scipy.org/" target="_blank" title="SciPy"><img alt="SciPy" class="plain" src="img/scipy_logo.svg"/></a>
+</div>
+
+<div class="fig-caption" style="max-width:100%; width:100%; bottom: 25%">Click to visit each project</div>
+
+<!--s-->
+
+<!-- .slide: class="section_header" data-background="#303c6b"-->
+## Unsupervised hyperspectral signal separation
 
 <!--s-->
 
@@ -399,5 +547,5 @@ Joshua Taillon
 
 <!--s-->
 
-## References
+## List of References
 <!-- .slide: class="reference" -->
