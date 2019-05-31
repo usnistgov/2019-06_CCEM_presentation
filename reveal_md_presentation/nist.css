@@ -20,6 +20,12 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+video.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 .reveal .fig-caption {
   position: absolute;
   margin: auto;
@@ -27,10 +33,10 @@
   width: 45%;
   right: 0;
   text-align: center;
-  font-style: italic;
   bottom: 28%;
   height: auto;
   display: block;
+  font-style: italic;
   color: #4a4a4a;
   font-size: x-large;
 }
