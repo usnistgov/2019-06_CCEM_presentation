@@ -185,9 +185,9 @@ ODI supports development of research programs where advanced manipulation, visua
 <sticky>This is personal opinion! Feel free to disagree...</sticky> <!-- .element: style="height:11.5%;" -->
 <!-- .slide: class="two-columns" -->
 
-- Relevant buzzwords:
+- Relevant buzzwords: <!-- .element: style="position:absolute; top:25%" -->
 
-<div class="two-cols">
+<div class="two-cols" style="top:28%">
   <div class="col">
     <ul>  
       <ul>

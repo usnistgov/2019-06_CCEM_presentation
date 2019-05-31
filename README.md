@@ -35,7 +35,7 @@ npm install -g decktape
 And then (with the presentation server running in another terminal) run:
 
 ```bash
- decktape reveal http://localhost:1948/presentation.md slides.pdf --chrome-arg=--no-sandbox --chrome-arg=--allow-file-access-from-files
+ decktape reveal --size 1920x1080 http://localhost:1948/presentation.md slides.pdf  --chrome-arg=--no-sandbox --chrome-arg=--allow-file-access-from-files
 ```
 
 This seems to do a pretty good job of rendering the presentation appropriately.

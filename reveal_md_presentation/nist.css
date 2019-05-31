@@ -248,6 +248,8 @@ body {
 
 .two-cols{
   display: flex;
+  top: 25%;
+  position: absolute;
 }
 .col{
   flex: 1;
