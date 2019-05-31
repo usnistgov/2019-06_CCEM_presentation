@@ -115,6 +115,10 @@ section#python_ecosystem img {
   box-shadow: none;
 }
 
+section.technique_list li {
+  font-size: 0.9em;
+}
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/

@@ -401,7 +401,6 @@ LS is low-discrepancy sequencing (grid + random jitter)
   - Can you reproduce your post-doc's analysis?
 - Tightly integrated with equipment/acquisition
 
-
 ![Profile extraction in Gatan DM](img/DM_GUI.svg) <!-- .element: class="plain vertical-center" style="max-width:100% !important; width:45%; right:0%; top:45%;" -->
 <div class="fig-caption" style="width:55%; bottom: 15%">Extracting EELS intensity profile in Gatan Digital Micrograph</div>
 
@@ -417,7 +416,7 @@ LS is low-discrepancy sequencing (grid + random jitter)
 <br/><br/>
 - Computation within a “notebook” environment
 - Seamless mixing of notetaking, mathematics, and data analysis
-- Notebook is rendered in any web browser 
+- Notebook is rendered in any web browser
 - Version controlled and exportable to PDF, HTML, Markdown, etc.
 
 ![Notebook analysis vs. GUI](img/gui_vs_nb.svg) <!-- .element: class="plain vertical-center" style="max-width:100% !important; width:55%; right:-5%; top:45%;" -->
@@ -436,6 +435,7 @@ s_sig = s.remove_background(signal_range=(70.2, 97.2))
 s_crop = s_sig.inav[:, 12:62].isig[94.5:110.1]
 s_crop.sum(axis=(1,-1)).plot()
 ```
+
 <div class="fig-caption" style="max-width:100%; width:100%; bottom: 35%">Only 5 lines of code!</div>
 <sticky style="max-width:20%;">Please join one of the HyperSpy tutorials this week if you want to learn more!</sticky>
 <!--s-->
@@ -535,15 +535,123 @@ s_crop.sum(axis=(1,-1)).plot()
 <!--s-->
 
 <!-- .slide: class="section_header" data-background="#303c6b"-->
-## Unsupervised hyperspectral signal separation
+## Unsupervised hyperspectral signal separation <br/> (spectral unmixing)
 
 <!--s-->
 
-# Thank you! <!-- .element: style="text-align: center;" -->
+## Overview
 
-Joshua Taillon
+- <!-- .element: class="fragment" data-fragment-index="1" --> What techniques is this applicable to?
 
-<a href="mailto:joshua.taillon@nist.gov">joshua.taillon@nist.gov</a>
+- <!-- .element: class="fragment" data-fragment-index="2" --> What is unmixing (phase mapping)?
+
+- <!-- .element: class="fragment" data-fragment-index="3" --> Vendor options vs. open solutions
+
+- <!-- .element: class="fragment" data-fragment-index="4" --> Demonstration of different unmixing algorithms
+
+<!--s-->
+
+## Applicable techniques
+
+<!-- .slide: class="technique_list" -->
+
+- Raster-based scanning spectroscopic methods:
+  - Scanning transmission electron microscopy (STEM)
+    - Electron energy-loss spectroscopy (EELS) and EDS
+  - Scanning electron microscopy (SEM)
+    - X-ray energy dispersive spectroscopy (EDS)
+  - X-ray fluorescence spectroscopy mapping (XRF and μXRF)
+  - Infrared spectroscopy mapping (FTIR)
+
+- Image-based methods
+  - Time series images of kinetic behaviors
+  - Through-focal series in TEM (extracting true structure)
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+## Applicable techniques
+
+<!-- .slide: class="technique_list" -->
+
+- <!-- .element: style="opacity:0.2" --> Raster-based scanning spectroscopic methods:
+  - <!-- .element: style="opacity:0.2" -->Scanning transmission electron microscopy (STEM)
+    - Electron energy-loss spectroscopy (EELS) and EDS
+  - Scanning electron microscopy (SEM)
+    - X-ray energy dispersive spectroscopy (EDS)
+  - <!-- .element: style="opacity:0.2" -->X-ray fluorescence spectroscopy mapping (XRF and μXRF)
+  - <!-- .element: style="opacity:0.2" -->Infrared spectroscopy mapping (FTIR)
+
+- <!-- .element: style="opacity:0.2" -->Image-based methods
+  - <!-- .element: style="opacity:0.2" -->Time series images of kinetic behaviors
+  - <!-- .element: style="opacity:0.2" -->Through-focal series in TEM (extracting true structure)
+
+<!--s-->
+
+## X-ray energy dispersive spectroscopy (EDS) <!-- .element: style="font-size:1.3em;" -->
+
+<div class="two-cols"  style="top:14%;">
+<div class="col">
+  <img class="plain" style="background:none;" width="100%" src="img/eds_phenomenon.png"/>
+  <div style="color: #4a4a4a; font-size: 0.5em;">
+    Williams and Carter, *Transmission Electron <br/> Microscopy*, p. 55 (2009)
+  </div>
+</div>
+<div class="col" style="margin-top: 10%;">
+  <img class="plain" width="100%" src="img/eds_spectrum_example.png"/>
+  <div style="margin-left:auto; margin-right:auto; width:90%;
+              color:#4a4a4a; text-align:justify; font-size:0.4em;">
+    EDS spectrum of the mineral crust of the vent shrimp 
+    [*Rimicaris exoculata*](https://en.wikipedia.org/wiki/Alvinocarididae#Rimicaris).
+    Most of these peaks are X-rays given off as electrons return to the K
+    electron shell.([K-alpha](https://en.wikipedia.org/wiki/K-alpha) and
+    [K-beta](https://en.wikipedia.org/wiki/K-beta) lines) One peak is from the
+    L shell of iron. 
+    ([source](https://en.wikipedia.org/wiki/Energy-dispersive_X-ray_spectroscopy))
+  </div>
+</div>
+</div>
+
+<!--s-->
+
+## <!-- .element: style="font-size:1.3em;" --> What *is* hyperspectral unmixing?
+<!-- .slide: class="one_image" -->
+
+- Start with some hyperspectral data:
+<br/>
+
+<img src="img/gatan_hs.png" alt="" class="plain">
+<div class="fig-caption" style="margin-right:20%; text-align:right; bottom:20%">Image courtesy of Gatan, Inc.</div>
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+## <!-- .element: style="font-size:1.3em;" --> What *is* hyperspectral unmixing?
+
+<img src="img/what_is_unmixing_1.svg" class="plain"/>
+
+<img style="height:2em" src="img/unmixing_eq_1.svg" class="plain fragment" data-fragment-index="1"/>  
+
+<img style="height:2em" src="img/unmixing_eq_2.svg" class="plain fragment" data-fragment-index="2"/>
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+## <!-- .element: style="font-size:1.3em;" --> What *is* hyperspectral unmixing?
+
+<img src="img/what_is_unmixing_2.svg" class="plain"/>
+
+<!--s-->
+
+# Thank you! <!-- .element: style="text-align: center; color:#ffffff" -->
+<!-- .slide: data-background="#303c6b"-->
+
+Joshua Taillon <!-- .element: style="color:#dbdbdb" -->
+
+<a href="mailto:joshua.taillon@nist.gov" style="text-decoration:none; color:white">joshua.taillon@nist.gov</a>
 
 <!--s-->
 
