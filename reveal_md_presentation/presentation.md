@@ -547,7 +547,7 @@ s_crop.sum(axis=(1,-1)).plot()
 
 - <!-- .element: class="fragment" data-fragment-index="3" --> Vendor options vs. open solutions
 
-- <!-- .element: class="fragment" data-fragment-index="4" --> Demonstration of different unmixing algorithms
+- <!-- .element: class="fragment" data-fragment-index="4" --> Demonstration of a few different unmixing algorithms
 
 <!--s-->
 
@@ -602,12 +602,12 @@ s_crop.sum(axis=(1,-1)).plot()
   <img class="plain" width="100%" src="img/eds_spectrum_example.png"/>
   <div style="margin-left:auto; margin-right:auto; width:90%;
               color:#4a4a4a; text-align:justify; font-size:0.4em;">
-    EDS spectrum of the mineral crust of the vent shrimp 
+    EDS spectrum of the mineral crust of the vent shrimp
     [*Rimicaris exoculata*](https://en.wikipedia.org/wiki/Alvinocarididae#Rimicaris).
     Most of these peaks are X-rays given off as electrons return to the K
     electron shell.([K-alpha](https://en.wikipedia.org/wiki/K-alpha) and
     [K-beta](https://en.wikipedia.org/wiki/K-beta) lines) One peak is from the
-    L shell of iron. 
+    L shell of iron.
     ([source](https://en.wikipedia.org/wiki/Energy-dispersive_X-ray_spectroscopy))
   </div>
 </div>
@@ -646,14 +646,341 @@ s_crop.sum(axis=(1,-1)).plot()
 
 <!--s-->
 
+## What do the vendors offer?
+
+<ul style="position:absolute;font-size:0.7em; top:20%">
+  <li>
+    If you've used a modern EDS software package, you probably
+    have done hyperspectral unmixing (they usually call it *phase mapping*)...
+  </li>
+</ul>
+
+<div class="two-cols"  style="top:14%;">
+<div class="col" style="margin-top: 15%;">
+  <img class="plain" style="height:45%;background:none;" src="img/eds_oxford.png"/>
+  <div style="margin-left:auto; margin-right:auto; width:90%;
+              color:#4a4a4a;font-size:0.8em;">
+    Oxford - AutoPhaseMap
+  </div>
+</div>
+<div class="col" style="margin-top: 15%;">
+  <img class="plain" style="height:45%;background:none;"  src="img/eds_team.png"/>
+  <div style="max-height:25%;margin-left:auto; margin-right:auto; width:90%;
+              color:#4a4a4a;font-size:0.8em;">
+    EDAX - Smart Phase Mapping
+  </div>
+</div>
+</div>
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+## What do the vendors offer?
+
+<ul style="position:absolute;font-size:0.7em; top:20%">
+  <li>
+    If you've used a modern EDS software package, you probably
+    have done hyperspectral unmixing (they usually call it *phase mapping*)...
+  </li>
+</ul>
+
+<div class="two-cols"  style="top:14%;">
+<div class="col" style="margin-top: 15%;">
+  <img class="plain" style="height:55%;background:none;" src="img/eds_bruker.png"/>
+  <div style="margin-left:auto; margin-right:auto; width:90%;
+              color:#4a4a4a;font-size:0.8em;">
+    Bruker - AutoPhase
+  </div>
+</div>
+<div class="col" style="margin-top: 15%;">
+  <img class="plain" style="height:50%;background:none;"  src="img/eds_thermo.png"/>
+  <div style="max-height:25%;margin-left:auto; margin-right:auto;margin-top:5%; width:90%;
+              color:#4a4a4a;font-size:0.8em;">
+    Thermo Fisher - COMPASS
+  </div>
+</div>
+</div>
+
+<!--s-->
+
+<!-- .slide: style="width:110%" -->
+
+## <!-- .element: style="font-size:1.3em;" --> Strengths/challenges of <em style="color:#2387de">vendor</em> options
+
+<div class="two-cols"  style="width:100%; top:17%;">
+<div class="col pro-con" style="width:45%">
+  <div style="text-align:center; color:#00b050;
+              font-weight:bold; font-size:1.5em;
+              margin-left:-20%;">
+    The Good
+  </div>
+  <ul style="margin-right:5%;margin-top:5%">
+    <li>Simple point-and-click operation</li>
+    <li>Tight integration</li>
+    <ul>
+      <li>
+        Collection, visualization, reporting, etc.
+      </li>
+    </ul>
+    <li>
+      Usually runs in real-time
+    </li>
+    <li>
+      Integration with other data sources (*e.g.* EBSD)
+    </li>
+    <li>
+      Generally "just works"
+    </li>
+  </ul>
+</div>
+<div data-fragment-index="1" class="fragment col pro-con" style="width:45%">
+  <div style="text-align:center; color:#c00000;
+              font-weight:bold; font-size:1.5em;
+              margin-left:-20%;">
+    The Not So Good
+  </div>
+    <ul style="margin-left:5%;margin-top:5%">
+    <li>Extremely "black box"</li>
+    <li>Reproducibility (!)</li>
+    <ul>
+      <li>
+        Configurable options with little understanding of why
+      </li>
+    </ul>
+    <li>
+      What are the uncertainties?
+    </li>
+    <li>
+      Tied to software ($)
+    </li>
+    <li>
+      Choice of vendor should not change the scientific result
+    </li>
+  </ul>
+</div>
+</div>
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+<!-- .slide: style="width:110%" -->
+
+## <!-- .element: style="font-size:1.3em;" --> Strengths/challenges of <em style="color:#2387de">open source</em> options
+
+<div class="two-cols"  style="width:100%; top:17%;">
+<div class="col pro-con" style="width:45%">
+  <div style="text-align:center; color:#c00000;
+              font-weight:bold; font-size:1.5em;
+              margin-left:-20%;">
+    The Not So Good
+  </div>
+  <ul style="font-size:0.9em;margin-right:5%;margin-top:5%">
+    <li>Usually not point-and-click</li>
+    <li>(Can be) difficult to access raw data from the vendor software</li>
+    <li>Generally only post-processing</li>
+    <li>Learning curve can be substantial</li>
+    <li>Can take a lot more fiddling</li>
+  </ul>
+</div>
+<div data-fragment-index="1" class="fragment col pro-con" style="width:45%">
+  <div style="text-align:center; color:#00b050;
+              font-weight:bold; font-size:1.5em;
+              margin-left:-20%;">
+    The Good
+  </div>
+    <ul style="margin-left:5%;margin-top:5%">
+    <li>You know what’s happening</li>
+    <li>Reproducibility (!)</li>
+    <ul>
+      <li>Anyone can recreate your analysis (including you!)</li>
+    </ul>
+    <li>Uncertainty can be understood</li>
+    <li>Usually free</li>
+    <li>Results do not depend on vendor</li>
+  </ul>
+</div>
+</div>
+
+<!--s-->
+
+## Offline "phase mapping"
+
+<br/>
+
+- Many algorithms exist to solve:&nbsp;&nbsp; $\mathbf{D}\_{\left(x,y\right),E}=\mathbf{W}\_{\left(x,y\right)} \times \mathbf{S}\_E$
+  - <!-- .element: style="font-size:0.8em;" --> Assumptions implicit in each affect their suitability for EDS
+
+- Primary methods:
+  - <!-- .element: style="font-size:0.8em;" --> Principal component analysis (PCA) &mdash; finds non-physical spectra that describe the most variance in the datacube
+  - <!-- .element: style="font-size:0.8em;" --> Independent component analysis (ICA) &mdash; maximizes independence between spectral results
+  - <!-- .element: style="font-size:0.8em;" --> Multivariate curve resolution (MCR) and non-negative matrix factorization (NMF) &mdash; enforce positivity in spectral components and weights
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+## Offline "phase mapping"
+
+<br/>
+
+- Many algorithms exist to solve:&nbsp;&nbsp; $\mathbf{D}\_{\left(x,y\right),E}=\mathbf{W}\_{\left(x,y\right)} \times \mathbf{S}\_E$
+  - <!-- .element: style="font-size:0.8em;" --> Assumptions implicit in each affect their suitability for EDS
+
+- Other methods:
+  - <!-- .element: style="font-size:0.8em;" --> Geometric methods &mdash; Vertex component analysis (VCA), Minimum volume simplex analysis (MVSA), and others...
+  - <!-- .element: style="font-size:0.8em;" --> Monte Carlo methods &mdash; Bayesian linear unmixing (BLU)
+  - <!-- .element: style="font-size:0.8em;" --> Clustering methods &mdash; k-means, Gaussian mixture modeling (GMM) <br/><br/><br/><br/>
+
+<!--s-->
+
+## Looking at some real data...
+<!-- .slide: class="text_left_im_right tight_list" -->
+
+<ul style="font-size:0.95em;">
+  <li style="font-weight:bold!important;">SEM-EDS mapping data</li>
+  <li style="font-weight:bold!important;">Japan 1957 Research Specimen from Freer Gallery of Art</li>
+  <ul>
+    <li>Data from an ongoing research project at Smithsonian’s Museum Conservation Institute</li>
+    <li>Courtesy of Thomas Lam and Edward P. Vicenzi</li>
+  </ul>
+  <li style="font-weight:bold!important;">Map specifics:</li>
+  <ul>
+    <li>30 keV primary beam</li>
+    <li>512 x 384 pixels; 1564 spectral channels</li>
+    <li>Jadeite (NaAlSi<sub>2</sub>O<sub>6</sub>) and Omphacite ((Ca,Na)(Mg,Fe<sup>2+</sup>,Al)Si<sub>2</sub>O<sub>6</sub>)</li>
+  </ul>
+</ul>
+
+![EDS integrated intensities](img/SI_eds_pixel.png) <!-- .element: class="plain vertical-center" style="background:none;max-width:100% !important; width:40%; right:0%; top:50%;" -->
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+## Looking at some real data...
+<!-- .slide: class="text_left_im_right tight_list" -->
+
+<ul style="font-size:0.95em;">
+  <li style="font-weight:bold!important;">SEM-EDS mapping data</li>
+  <li style="font-weight:bold!important;">Japan 1957 Research Specimen from Freer Gallery of Art</li>
+  <ul>
+    <li>Data from an ongoing research project at Smithsonian’s Museum Conservation Institute</li>
+    <li>Courtesy of Thomas Lam and Edward P. Vicenzi</li>
+  </ul>
+  <li style="font-weight:bold!important;">Map specifics:</li>
+  <ul>
+    <li>30 keV primary beam</li>
+    <li>512 x 384 pixels; 1564 spectral channels</li>
+    <li>Jadeite (NaAlSi<sub>2</sub>O<sub>6</sub>) and Omphacite ((Ca,Na)(Mg,Fe<sup>2+</sup>,Al)Si<sub>2</sub>O<sub>6</sub>)</li>
+  </ul>
+</ul>
+
+![EDS integrated intensities](img/SI_eds_intensity.png) <!-- .element: class="plain vertical-center" style="background:none;max-width:100% !important; width:48%; right:0%; top:47%;" -->
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+## How many components are needed?
+<!-- .slide: class="text_left_im_right tight_list" -->
+
+- PCA helps determine the answer with a scree plot
+- Order the components by decreasing amount of contained variance on logarithmic scale
+- "Correct" number of components generally at the discontinuity in the scree plot
+
+![Scree plot](img/scree_plot.png) <!-- .element: class="plain vertical-center" style="background:none;max-width:100% !important; width:48%; right:0%; top:47%;" -->
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+## PCA Denoising $\left(n=4\right)$
+
+<div class="two-cols">
+<div class="col">
+  <img class="plain" width="100%" src="img/SI_eds_intensity.png"/>
+</div>
+<div class="col">
+  <img class="plain" width="100%" src="img/SI_eds_intensity_PCA.png"/>
+</div>
+</div>
+
+<!--s-->
+
+## <!-- .element: style="font-size:1.3em;" --> Principal component analysis $\left(n=4\right)$
+
+<div class="two-cols" style="top:22%;">
+<div class="col">
+  <img class="plain" style="max-width:110%;" width="100%" src="img/PCA_loadings.png"/>
+</div>
+<div class="col">
+  <img class="plain" style="max-width:110%;" width="100%" src="img/PCA_factors.png"/>
+</div>
+</div>
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+## <!-- .element: style="font-size:1.3em;" --> Non-negative Matrix Factorization (NMF)
+
+<div class="two-cols" style="top:22%;">
+<div class="col">
+  <img class="plain" style="max-width:110%;" width="100%" src="img/NMF_loadings.png"/>
+</div>
+<div class="col">
+  <img class="plain" style="max-width:110%;" width="95%" src="img/NMF_factors.png"/>
+</div>
+</div>
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+## <!-- .element: style="font-size:1.3em;" --> A peculiar result
+
+<img class="plain" style="background:none; max-width:110%" src="img/SI_eds_missing_Al.png">
+
+<!-- .slide: data-transition="none" -->
+<!--v-->
+<!-- .slide: data-transition="none" -->
+
+## <!-- .element: style="font-size:1.3em;" --> A peculiar result
+
+<img class="plain" style="background:none; max-width:110%" src="img/SI_eds_missing_Al_circle.png">
+
+<!--s-->
+
+## <!-- .element: style="font-size:1.3em;" --> A solid solution explains the result!
+<!-- .slide: class="text_left_im_right" -->
+
+- Omphacite is solid solution of:
+  - Jadeite &mdash; Na(Al,Fe<sup>3+</sup>)Si<sub>2</sub>O<sub>6</sub>
+  - Augite &mdash; (Ca<sub>x</sub>Mg<sub>y</sub>Fe<sub>z</sub>)(Mg<sub>y1</sub>Fe<sub>z1</sub>)Si<sub>2</sub>O<sub>6</sub>
+  - Aegirine &mdash;  NaFe<sup>3+</sup>Si<sub>2</sub>O<sub>6</sub>
+
+<img class="plain" style="background:none; top:15%; max-width:55%!important; right:-5%" src="img/omphacite_phase_diagram.png">
+
+<!--s-->
+
+## Remaining Questions
+
+<!-- .slide: style="font-size:90%" -->
+
+- Still not really known what this means for more precise quantification
+  - Unmixing results are not always deterministic
+  - Dependent on constraints, assumptions, and signal quality (noise level)
+- Do count statistics, noise characteristics, etc. hold valid after signal separation?
+- No (known) rigorous studies of quantification/unmixing
+- Lots of opportunities for further research
+
+<!--s-->
+
 # Thank you! <!-- .element: style="text-align: center; color:#ffffff" -->
 <!-- .slide: data-background="#303c6b"-->
 
 Joshua Taillon <!-- .element: style="color:#dbdbdb" -->
 
 <a href="mailto:joshua.taillon@nist.gov" style="text-decoration:none; color:white">joshua.taillon@nist.gov</a>
-
-<!--s-->
-
-## List of References
-<!-- .slide: class="reference" -->

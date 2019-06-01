@@ -197,6 +197,10 @@ body {
   vertical-align: middle;
 }
 
+.MathJax {
+  font-weight:normal !important;
+}
+
 /*********************************************
  * HEADERS
  *********************************************/
@@ -260,6 +264,9 @@ body {
 }
 .col > ul > ul > li {
   font-weight: normal !important;
+}
+.col.pro-con > ul {
+  font-size:0.8em;
 }
 
 .text_left_im_right > h2 + ul {
@@ -483,12 +490,15 @@ section.reference ul > li {
 .reveal sup {
   vertical-align: top;
   position: relative;
-  top: -0.25em; }
+  top: -0.25em;
+  font-size:60%; 
+}
 
 .reveal sub {
   vertical-align: bottom;
   position:relative;
-  bottom: -0.25em;}
+  bottom: -0.25em;
+  font-size:60%;}
 
 .reveal small {
   display: inline-block;
