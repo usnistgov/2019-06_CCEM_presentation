@@ -72,6 +72,9 @@ section.present > h2 {
   text-align: left;
 }
 
+table#ecosystem > tbody > tr > td > a {
+  font-size: 0.85em;
+}
 
 section.section_header > h2 {
   color:white;

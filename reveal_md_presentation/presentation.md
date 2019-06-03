@@ -442,7 +442,7 @@ s_crop.sum(axis=(1,-1)).plot()
 
 ## A burgeoning ecosystem
 
-<table style="max-width:100%; width:100%; height:100%;font-size:.55em; margin-left:-12%;">
+<table id="ecosystem" style="max-width:100%; width:100%; height:100%;font-size:.5em; margin-left:0%;">
   <tr style="font-weight:bold;">
     <th colspan="2">General Purpose</th>
     <th></th>
