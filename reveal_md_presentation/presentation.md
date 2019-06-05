@@ -606,6 +606,8 @@ Notes:
 ![Notebook analysis vs. GUI](img/gui_vs_nb.svg) <!-- .element: class="plain vertical-center" style="max-width:100% !important; width:52%; right:-5%; top:45%;" -->
 <div class="fig-caption" style="width:60%; bottom: 15%">Notebook compared to GUI</div>
 
+Notes:
+
 - I found a better way (for me, and maybe for you) using a "notebook" environment
   - Jupyter notebooks are a data exploration and analsysis tool that allow you to combine note taking, programming inputs and outputs, figures, etc.
   - Can be viewed in any browser and exported to many different formats
