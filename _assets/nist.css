@@ -72,6 +72,40 @@ section.present > h2 {
   text-align: left;
 }
 
+table#ecosystem {
+  table-layout: fixed;
+  /* max-width:100%;  */
+  width: unset; 
+  /* height:100%; */
+  /* font-size:.8em; */
+  margin-left:auto;
+  margin-right:auto;
+}
+
+table#ecosystem td.section-label{
+  font-size:80%;
+}
+
+table#ecosystem td.link-col {
+  word-break: break-word;
+  width: 45vw;
+  font-size: 60%;
+  /* overflow: hidden; */
+}
+
+table#ecosystem td.label-col {
+  width:15vw;
+  font-size: 70%;
+  /* word-break: break-word; */
+}
+
+table#ecosystem > tbody > tr > td > a {
+  font-size: 0.9em;
+}
+
+pre#hs_ex {
+  font-size:100%;
+}
 
 section.section_header > h2 {
   color:white;
@@ -90,7 +124,7 @@ section.section_header > h2 {
 
 section.one_image img {
   position: relative;
-  top:-25px;
+  top:-50px;
 }
 
 section.one_image .fig-caption {
@@ -150,7 +184,7 @@ body {
 
 .reveal {
   font-family: "Lato", "Helvetica", "Arial", sans-serif;
-  font-size: 36px;
+  font-size: 2em;
   font-weight: normal;
   color: #333; }
 
@@ -533,7 +567,7 @@ section.reference ul > li {
  *********************************************/
 .reveal section img {
   margin: 15px 0px;
-  background: rgba(255, 255, 255, 1.0);
+  /* background: rgba(255, 255, 255, 1.0); */
   border: 2px solid #333;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); }
 
@@ -547,9 +581,9 @@ section.reference ul > li {
   transition: all .15s linear; }
 
 .reveal a:hover img {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #26386D;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
+  background: none;
+  border-color: none;
+  box-shadow: none; }
 
 /*********************************************
  * NAVIGATION CONTROLS
